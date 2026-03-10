@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Status Aggregator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-AWS { border-top: 5px solid #ff9900; }
+        .card-GCP { border-top: 5px solid #4285F4; }
+        .card-Azure { border-top: 5px solid #008080; }
+        .badge-UP { background-color: #28a745; }
+        .badge-DEGRADED { background-color: #ffc107; color: black; }
+        .badge-DOWN { background-color: #dc3545; }
+        .badge-UNKNOWN { background-color: #6c757d; }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <strong>Cloud Status Aggregator</strong>
+                <span class="ms-2 badge bg-secondary d-none d-sm-inline">Live Multi-Cloud Health Dashboard</span>
+            </a>
+            <span class="navbar-text text-white small">
+                Last Checked: {{ checked_at }}
+            </span>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <div class="row g-4">
+            {% for provider in providers %}
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm card-{{ provider.name }}">
+                    <div class="card-body text-center">
+                        <div class="display-1 mb-3">
+                            {% if provider.name == 'AWS' %}☁️{% elif provider.name == 'GCP' %}🌐{% else %}🔷{% endif %}
+                        </div>
+                        <h2 class="card-title h4 mb-4">{{ provider.name }}</h2>
+                        <div class="mb-4">
+                            <span class="badge badge-{{ provider.status }} p-3 fs-5">
+                                {{ provider.status }}
+                            </span>
+                        </div>
+                        <p class="card-text text-muted small">
+                            Updated: {{ provider.last_updated }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="mt-5 py-4 bg-white border-top text-center text-muted">
+        <div class="container">
+            <p class="mb-0 small">Patent-inspired by Venkata Srinivas Kantamneni - USPTO 19/325718.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        setTimeout(function() {
+            location.reload();
+        }, 60000);
+    </script>
+</body>
+</html>
