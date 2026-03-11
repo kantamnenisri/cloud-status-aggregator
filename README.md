@@ -34,7 +34,7 @@ Returns JSON with provider name, status, and last_updated for each provider plus
 
 ## Run Locally Without Docker
 Requirements: Python 3.11 and pip installed.
-Step 1: git clone https://github.com/YOUR_GITHUB_USERNAME/cloud-status-aggregator.git
+Step 1: git clone https://github.com/kantamnenisri/cloud-status-aggregator.git
 Step 2: cd cloud-status-aggregator
 Step 3: python -m venv venv
 Step 4 on Windows: .\venv\Scripts\Activate
@@ -80,3 +80,9 @@ USPTO Patent Application 19/325718
 
 ## License
 MIT License
+
+
+## 💡 Inspiration
+This project is a reference implementation exploring concepts related to 
+multi-cloud reliability engineering. The author holds USPTO patent 
+applications in this domain (US 19/325,718 and US 19/344,864).
