@@ -89,3 +89,9 @@ applications in this domain (US 19/325,718 and US 19/344,864).
 
 ## Health Check
 - Added /ping endpoint for automated health monitoring.
+
+
+---
+
+## 📧 Contact
+For support or inquiries, please contact the repository owner or open an issue on GitHub.

@@ -109,6 +109,10 @@ def api_status():
         'checked_at': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
     })
 
+@app.route('/ping')
+def ping():
+    return 'OK'
+
 @app.route('/api/debug')
 def api_debug():
     import traceback
